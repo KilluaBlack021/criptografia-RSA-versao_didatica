@@ -1,4 +1,5 @@
 from random import randrange
+from com_arquivos_txt.auxiliares import escreva, leia
 
 
 def mdc(n1, n2):
@@ -28,6 +29,7 @@ def cifrar(msg, e, n):
     for letra in msg:
         k = ord(letra) ** e % n
         msg_cifrada += chr(k)
+    escreva('mensagem_criptografada.txt', msg_cifrada)
     return msg_cifrada
 
 
@@ -40,21 +42,11 @@ def decifrar(msg, n, d):
 
 
 # main
-msg = '''
-Era uma vez os três porquinhos, 
-o Bob, o Valdisney e o Pedrinho.
-Bob é viciado no cigarrinho do capeta
-sua casa é de palha e passa o dia na... trobeta!
-Valdisney é favelado, tem um barraco de madeira 
-graças ao bolsa familia não trampou a vida inteira.
-O Pedrinho é diferente, designin de interiores,
-tem uma casa de tijolos e limpa a ***** com flores'''
-
-p = 17 # primo 1
-q = 19 # primo 2
+msg = leia(input('Arquivo.txt da mensagem: '))
+p = 17
+q = 19
 n = p * q
-totiente = (p-1) * (q-1) # inverso multiplicativo de N
-
+totiente = (p-1) * (q-1)
 e = gerador_chave_publica(totiente)
 d = gerador_chave_privada(totiente, e)
 
@@ -62,6 +54,6 @@ d = gerador_chave_privada(totiente, e)
 #print(f'chave publica: {e}, {n}\n chave privada: {d, n}')
 
 msg = cifrar(msg, e, n)
-print(f'msg cifrada: {msg}\n')
+#print(f'msg cifrada: {msg}\n')
 msg = decifrar(msg, n, d)
-print(f'msg decifrada: {msg}\n')
+#print(f'msg decifrada: {msg}\n')
