@@ -2,10 +2,11 @@ como RSA funciona:
 
 
 1 - defina 2 números primos chamados de P e Q
-2 - calcule N que é igual a P*Q
+2 - calcule N que é igual a P*Q (N é a base para cifrar e decifrar)
 3 - encontre o valor de Z que é o inverso multiplicativo de N
-4 - encontre o valor de e
-5 - defina D
+4 - encontre o valor de E (a metade da chave publica)
+    E = 
+5 - defina D (a metade da chave privada)
 
 chave_publica é usada para codificar uma mensagem (texto > codigo),
 sendo ela definida por N e E, ou seja, chave_publica = [N, E]

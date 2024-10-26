@@ -2,6 +2,7 @@ from random import randrange
 
 
 def mdc(n1, n2): # algoritmo de euclides
+    """Retorna o maior divisor comum de dois números por meio do algoritmo de Euclides"""
     while n2 != 0:
         r = n1 % n2
         n1 = n2
@@ -9,24 +10,41 @@ def mdc(n1, n2): # algoritmo de euclides
     return n1
 
 
-def gerador_chave_publica(totiente):
+def inversor_multiplicativo(n1, n2):
+    """
+    Retorna o inverso multiplicativo do produto dos parametros informados
+    :param n1 int
+    :param n2 int
+    :return int inverso multiplicativo
+    """
+    return (n1-1) * (n2-1)
+
+
+def gerador_chave_publica(inverso_n):
+    """
+    Retorna 'E', o primeiro elemento da chave publica.
+    :param totiente: int
+    :return int maior divisor comum entre E e o inverso multiplicativo de N
+    """
     while True:
-        e = randrange(2, totiente)
-        if mdc(totiente, e) == 1:
+        e = randrange(2, inverso_n)
+        if mdc(inverso_n, e) == 1:
             return e
 
 
 def cifrar(msg, e, n):
     msg_cifrada = ''
     for letra in msg:
-        k = ord(letra) ** e % n
-        msg_cifrada += chr(k)
+        k = ord(letra) ** e % n # ord retorna o unicode do caractere informado como parametro
+        msg_cifrada += chr(k) # chr retorna o caractere equivalente ao resultado de K
     return msg_cifrada
 
 
-def gerador_chave_privada(totiente, e):
+def gerador_chave_privada(inverso_n, e):
+    """
+    Retorna 'D', o primeiro elemento da chave privada. """
     d = 0
-    while d*e % totiente != 1:
+    while d*e % inverso_n != 1:
         d += 1
     return d
 
@@ -63,10 +81,10 @@ p = 17 # primo 1
 q = 19 # primo 2
 
 n = p * q
-totiente = (p-1) * (q-1) # inverso multiplicativo de N
+inverso_n = inversor_multiplicativo(p, q) # inverso multiplicativo de N
 
-e = gerador_chave_publica(totiente)
-d = gerador_chave_privada(totiente, e)
+e = gerador_chave_publica(inverso_n)
+d = gerador_chave_privada(inverso_n, e)
 
 
 print(f'Chave publica: {e}, {n}\n\nChave privada: {d, n}\n\n\n')
