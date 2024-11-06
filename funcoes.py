@@ -13,7 +13,7 @@ def mdc(n1, n2): # algoritmo de euclides
     return n1
 
 
-def gerador_chave_publica(inverso_n):
+def gerador_chave_publica(phi_n):
     """
     Retorna 'E', o primeiro elemento da chave publica.
     :param totiente: int
@@ -21,9 +21,9 @@ def gerador_chave_publica(inverso_n):
     """
 
     while True:
-        e = randrange(inverso_n/2, inverso_n)
-        if mdc(inverso_n, e) == 1:
-            return e
+        e = randrange(phi_n/2, phi_n)
+        if mdc(phi_n, e) == 1:
+            return 65537
 
 
 def cifrar(msg, n, e):
@@ -39,7 +39,7 @@ def cifrar(msg, n, e):
     return msg_cifrada
 
 
-def gerador_chave_privada(inverso_n, e):
+def gerador_chave_privada(phi_n, e):
     """
     Retorna 'D', o primeiro elemento da chave privada. 
     :param inverso_n é o inverso da variavel n
@@ -48,7 +48,7 @@ def gerador_chave_privada(inverso_n, e):
 
     d = 0
 
-    while d*e % inverso_n != 1:
+    while d*e % phi_n != 1:
         d += 1
     return d
 

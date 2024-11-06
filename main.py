@@ -21,10 +21,10 @@ p = 17 # primo 1
 q = 11 # primo 2
 
 n = p * q
-inverso_n = (p-1) * (q-1) # inverso multiplicativo de N ou phi(n)
+phi_n = (p-1) * (q-1) # inverso multiplicativo de N
 
-e = gerador_chave_publica(inverso_n) # 181 é um bom valor quando usamos p=17 e q=19
-d = gerador_chave_privada(inverso_n, e) # 253 é um bom valor
+e = gerador_chave_publica(phi_n) # 181 é um bom valor quando usamos p=17 e q=19
+d = gerador_chave_privada(phi_n, e) # 253 é um bom valor
 
 
 print(f'Chave publica: {e}, {n}\n\nChave privada: {d, n}\n\n\n')

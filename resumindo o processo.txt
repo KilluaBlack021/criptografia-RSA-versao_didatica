@@ -1,5 +1,12 @@
                     Como RSA funciona:
 
+alguns conceitos importantes:
+
+    inverso multiplicativo: considerando X = (n1 * n2), o inverso multiplicativo de X ou phi_X = (n1-1) * (n2-1)
+
+    modulo: é o resto da divisão. EX: 17 mod 5 = 2, é o mesmo que o resto da divisão de 17 por 5
+
+
 Esse algoritmo de criptografia é baseado em uma chave publica e uma chave privada.
 Para encontra-las, são necessarios 5 passos:
 
@@ -18,7 +25,7 @@ passo 4:
     E = um numero maior que 1, menor que Z e ambos (Z e E) devem ser primos
 
 passo 5: 
-    defina D(a metade da chave privada) é o inverso multiplicativo de E 
+    defina D(a metade da chave privada) é o inverso multiplicativo de E modulo phi(n)
 
 
 
@@ -26,7 +33,28 @@ chave_publica:
     chave_publica é usada para codificar uma mensagem (texto > codigo),
 sendo ela definida por N e E, ou seja, chave_publica = [N, E]
 
+
 chave_privada:
     chave_privada é usada para decodificar uma mensagem (codigo > texto),
-sendo ela igual a D, ou seja, chave_privada = D
+sendo ela igual a D, ou seja, chave_privada = [N, D]
+
+
+
+
+                Como a encriptação funciona?
+
+
+Ela é baseada no Pequeno Teorema de Fermat que diz que:
+
+    Considerando A, o número a ser criptografado e B o resultado dessa encriptação:
+
+        Para encriptar um número A, basta eleva-lo a E modulo N. O resultado é B(A encriptado), melhor dizendo...
+
+                    A^E mod N = B
+
+        Para decriptar B, transformando-o em A, basta eleva-lo a D modulo N. O resultado é igual a A, ou seja...
+
+
+                    B^D mod N = A
+
 
