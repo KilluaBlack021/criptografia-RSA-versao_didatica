@@ -21,15 +21,15 @@ p = 17 # primo 1
 q = 19 # primo 2
 
 n = p * q
-inverso_n = inversor_multiplicativo(p, q) # inverso multiplicativo de N
+inverso_n = (p-1) * (q-1) # inverso multiplicativo de N ou phi(n)
 
-e = gerador_chave_publica(inverso_n)
-d = gerador_chave_privada(inverso_n, e)
+e = gerador_chave_publica(inverso_n) # 181 é um bom valor
+d = gerador_chave_privada(inverso_n, e) # 253 é um bom valor
 
 
 print(f'Chave publica: {e}, {n}\n\nChave privada: {d, n}\n\n\n')
 
-msg = cifrar(msg, e, n)
+msg = cifrar(msg, n, e)
 print(f'MSG CIFRADA: \n\n{msg}\n\n')
 msg = decifrar(msg, n, d)
 print(f'MSG DECIFRADA: \n\n{msg}\n\n')
