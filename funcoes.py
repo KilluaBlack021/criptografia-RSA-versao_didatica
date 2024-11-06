@@ -23,7 +23,7 @@ def gerador_chave_publica(phi_n):
     while True:
         e = randrange(phi_n/2, phi_n)
         if mdc(phi_n, e) == 1:
-            return 65537
+            return e
 
 
 def cifrar(msg, n, e):
