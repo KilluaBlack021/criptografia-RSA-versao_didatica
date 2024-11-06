@@ -23,7 +23,7 @@ q = 11 # primo 2
 n = p * q
 phi_n = (p-1) * (q-1) # inverso multiplicativo de N
 
-e = 65537 # gerador_chave_publica(phi_n) # usei esse número para facilitar o processo
+e = 65537 # gerador_chave_publica(phi_n) # motivo 1 pelo qual usei esse número: https://pt.wikipedia.org/wiki/65537; Motivo 2: é um número primo grande o suficiente, mas não perde eficiência na hora dos calculos
 d = gerador_chave_privada(phi_n, e)
 
 
