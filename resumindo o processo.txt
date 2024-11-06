@@ -1,17 +1,32 @@
-como RSA funciona:
+                    Como RSA funciona:
+
+Esse algoritmo de criptografia é baseado em uma chave publica e uma chave privada.
+Para encontra-las, são necessarios 5 passos:
+
+Passo 1:
+    defina 2 números primos chamados de P e Q
+
+passo 2: 
+    calcule N que é igual a P*Q (N é a base para cifrar e decifrar)
+
+Passo 3:
+    encontre o valor de Z que é o inverso multiplicativo de N
+
+passo 4:
+    encontre o valor de E (a metade da chave publica)
+
+    E = um numero maior que 1, menor que Z e ambos (Z e E) devem ser primos
+
+passo 5: 
+    defina D(a metade da chave privada) é o inverso multiplicativo de E 
 
 
-1 - defina 2 números primos chamados de P e Q
-2 - calcule N que é igual a P*Q (N é a base para cifrar e decifrar)
-3 - encontre o valor de Z que é o inverso multiplicativo de N
-4 - encontre o valor de E (a metade da chave publica)
-    E = 
-5 - defina D (a metade da chave privada)
 
-chave_publica é usada para codificar uma mensagem (texto > codigo),
+chave_publica:
+    chave_publica é usada para codificar uma mensagem (texto > codigo),
 sendo ela definida por N e E, ou seja, chave_publica = [N, E]
 
-
-chave_privada é usada para decodificar uma mensagem (codigo > texto),
+chave_privada:
+    chave_privada é usada para decodificar uma mensagem (codigo > texto),
 sendo ela igual a D, ou seja, chave_privada = D
 

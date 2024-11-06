@@ -13,7 +13,7 @@ def mdc(n1, n2): # algoritmo de euclides
     return n1
 
 
-def gerador_chave_publica(n):
+def gerador_chave_publica(inverso_n):
     """
     Retorna 'E', o primeiro elemento da chave publica.
     :param totiente: int
@@ -21,8 +21,8 @@ def gerador_chave_publica(n):
     """
 
     while True:
-        e = randrange(n/2, n)
-        if mdc(n, e) == 1:
+        e = randrange(inverso_n/2, inverso_n)
+        if mdc(inverso_n, e) == 1:
             return e
 
 
