@@ -1,9 +1,10 @@
-from random import randrange
+#from random import randrange
 
 
-def mdc(n1, n2): # algoritmo de euclides
+''' Essa parte só é util se fossemos gerar uma chave publica
+def mdc(n1, n2): # MDC pelo algoritmo de euclides
     """
-    Retorna o maior divisor comum de dois números por meio do algoritmo de Euclides
+    Retorna o maior divisor comum de dois números inteiros por meio do algoritmo de Euclides
     """
 
     while n2 != 0:
@@ -22,8 +23,9 @@ def gerador_chave_publica(phi_n):
 
     while True:
         e = randrange(phi_n/2, phi_n)
-        if mdc(phi_n, e) == 1:
+        if mdc(phi_n, e) == 1: # serve para sabermos se ambos os números são primos entre si
             return e
+'''
 
 
 def cifrar(msg, n, e):
