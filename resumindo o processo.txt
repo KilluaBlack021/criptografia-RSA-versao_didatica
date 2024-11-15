@@ -44,7 +44,7 @@ sendo ela igual a D, ou seja, chave_privada = [N, D]
                 Como a encriptação funciona?
 
 
-Ela é baseada no Pequeno Teorema de Fermat que diz que:
+Ela é baseada em uma adaptação do Pequeno Teorema de Fermat que diz que:
 
     Considerando A, o número a ser criptografado e B o resultado dessa encriptação:
 
